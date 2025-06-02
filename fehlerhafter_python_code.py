@@ -1,28 +1,67 @@
-# fehlerhafter_python_code.py
+# extremer_test_code.py
 
-def addiere_zahlen(a, b):
+import os
+import sys
+import math
+
+def add(a, b):
     summe = a + b
-    # ❗ Keine Rückgabe (Code Smell)
-    return
+    # ❗ Rückgabe fehlt
+    # ❗ Variable wird nicht verwendet
 
-def drucke_nachricht():
-    print("Dies ist eine Nachricht")
+def add(a, b):  # ❗ Doppelte Definition
+    return a + b
 
-def nutzer_eingabe():
-    name = input("Gib deinen Namen ein: ")
-    if name == "admin":
-        print("Willkommen Admin")
-    elif name == "user":  # kein Bug mehr, aber if/elif können z. B. zu toten Pfaden führen
-        print("Willkommen Nutzer")
+def unused_func():
+    temp = 42  # ❗ Niemals verwendet
+
+def open_file():
+    f = open("datei.txt", "r")  # ❗ Datei wird geöffnet, aber nie geschlossen
+
+def string_vergleich():
+    if "abc" is "abc":  # ❗ 'is' statt '=='
+        print("Strings sind gleich")
+
+def dangerous_eval():
+    code = input("Code eingeben: ")
+    eval(code)  # ❗ Unsicher: eval
+
+def falscher_typ():
+    return "fünf" + 5  # ❗ Typfehler
+
+def division_durch_null():
+    return 10 / 0  # ❗ Laufzeitfehler
+
+def endlos_schleife():
+    while True:
+        pass  # ❗ Endlos ohne Break
+
+def fehlerhafte_logik(a, b):
+    if a > b:
+        return b
     else:
-        print("Willkommen", name)
+        return a  # ❗ Sinnlose Logik
 
-def nie_genutzt():
-    x = 5 + 6  # ❗ Toter Code: Funktion wird nie aufgerufen
+def nutzlose_if():
+    if True:
+        return 1
+    else:
+        return 2  # ❗ Wird nie erreicht
 
-def fehlerhafte_berechnung():
-    return 5 / 0  # ❗ Bug: Division durch 0
+def print_zahl():
+    for i in range(5):
+        print(i)
+        i += 1  # ❗ Kein Effekt, da i von for-Schleife gesteuert wird
 
-drucke_nachricht()
-nutzer_eingabe()
-addiere_zahlen(3, 4)
+def magic_numbers():
+    if 42 == 3.14:  # ❗ Unnötiger Vergleich
+        return True
+    return False
+
+def shadowing_example():
+    list = [1, 2, 3]  # ❗ Überschreibt eingebauten Typ 'list'
+    print(list)
+
+print("Programmstart")
+add(1, 2)
+division_durch_null()
