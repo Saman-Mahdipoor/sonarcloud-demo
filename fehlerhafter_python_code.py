@@ -5,6 +5,10 @@ def addiere_zahlen(a, b):
     summe = a + b
     return
 
+def addiere_zahlen(a, b):
+    summe = a + b
+    return
+
 def drucke_nachricht():
     print("Dies ist eine Nachricht"
     
