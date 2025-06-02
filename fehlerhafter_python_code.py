@@ -1,4 +1,5 @@
 # fehlerhafter_python_code.py
+# yea
 
 def addiere_zahlen(a, b):
     summe = a + b
